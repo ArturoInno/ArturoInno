@@ -29,11 +29,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+      - name: Install bash (alpine)
+        run: apk add --no-cache bash
       - name: Make script executable
         run: chmod +x runner/script.sh || true
-      - name: Run script
-        shell: bash
-        run: sh ./runner/script.sh
+      - name: Run script with bash
+        run: bash ./runner/script.sh
 
   packageandpush:
     runs-on: ubuntu-latest
