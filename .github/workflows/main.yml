@@ -28,7 +28,7 @@ jobs:
 
   packageandpush:
     runs-on: ubuntu-latest
-    needs: test
+    needs: runner
     steps:
       - uses: actions/checkout@v4
       - name: package
