@@ -17,22 +17,18 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - run: echo "instaling python..."
+      - run: echo "instalando python..."
 
   runner:
     runs-on: ubuntu-latest
     needs: pythonsetup
     steps:
       - uses: actions/checkout@v4
-      - run: echo "running python script"
-  +    needs: pythonsetup
-  +    steps:
-  +      - uses: actions/checkout@v4
-  +      - name: Make script executable (safe)
-  +        run: chmod +x runner/script.sh || true
-  +      - name: Run script
-  +        shell: bash
-  +        run: ./runner/script.sh
+      - name: Make script executable (safe)
+        run: chmod +x runner/script.sh || true
+      - name: Run script
+        shell: bash
+        run: ./runner/script.sh
 
   packageandpush:
     runs-on: ubuntu-latest
@@ -45,7 +41,7 @@ jobs:
         run: |
           #cd app/
           #docker image build -t dummy_api .
-          echo "deploying image..."
+          echo "packaging..."
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,6 +52,4 @@ jobs:
         id: deploy
         shell: bash
         run: |
-          echo "SAMPLE..."
-    
-
+          echo
