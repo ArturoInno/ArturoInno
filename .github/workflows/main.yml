@@ -24,8 +24,9 @@ jobs:
     needs: pythonsetup
     container:
       image: sergiopr89/deployer:latest
-      #username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #password: ${{ secrets.DOCKERHUB_TOKEN }}
+      credentials:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Make script executable
