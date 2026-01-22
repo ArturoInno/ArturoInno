@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "RUNNING RUNER.PY"
+      - run: echo "Starting..."
 
   test:
     runs-on: ubuntu-latest
@@ -50,3 +50,9 @@ jobs:
         shell: bash
         run: |
           echo "SAMPLE..."
+    
+  runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "running python script"
