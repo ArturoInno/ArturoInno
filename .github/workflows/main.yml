@@ -33,7 +33,7 @@ jobs:
         run: chmod +x runner/script.sh || true
       - name: Run script
         shell: bash
-        run: ./runner/script.sh
+        run: sh ./runner/script.sh
 
   packageandpush:
     runs-on: ubuntu-latest
