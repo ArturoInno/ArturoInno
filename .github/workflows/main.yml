@@ -28,7 +28,7 @@ jobs:
       password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - name: Make script executable (safe)
+      - name: Make script executable
         run: chmod +x runner/script.sh || true
       - name: Run script
         shell: bash
