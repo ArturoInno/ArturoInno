@@ -71,4 +71,4 @@ jobs:
         id: deploy
         shell: bash
         run: |
-          echo "Simulando deploy..."
+          echo "Deploying..."
