@@ -17,15 +17,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - name: test
-        id: test
-        shell: bash
-        run: |
-          #cd app/dummy_api/
-          #pip install --upgrade pip
-          #pip install -r ./requirements.txt
-          #./test.sh
-          echo "instaling python..."
+        run: echo "instaling python..."
 
   runner:
     runs-on: ubuntu-latest
