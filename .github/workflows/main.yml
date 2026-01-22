@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Building Python project "
+      - run: echo "RUNNING RUNER.PY"
 
   test:
     runs-on: ubuntu-latest
@@ -49,5 +49,4 @@ jobs:
         id: deploy
         shell: bash
         run: |
-          # Simulamos el deploy para evitar fallos si no hay KUBECONFIG
           echo "Simulando deploy: helm upgrade --install dummy ./charts/basic-app -f ./vars.yaml --namespace dummy ..."
