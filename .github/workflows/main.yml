@@ -26,6 +26,11 @@ jobs:
           #pip install -r ./requirements.txt
           #./test.sh
           echo "instaling python..."
+    runner:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - run: echo "running python script"
 
   packageandpush:
     runs-on: ubuntu-latest
@@ -51,8 +56,4 @@ jobs:
         run: |
           echo "SAMPLE..."
     
-  runner:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: echo "running python script"
+
