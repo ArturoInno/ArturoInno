@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Building Python project 🔥"
+      - run: echo "Building Python project "
 
   test:
     runs-on: ubuntu-latest
