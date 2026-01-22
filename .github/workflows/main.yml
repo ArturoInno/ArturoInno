@@ -25,7 +25,7 @@ jobs:
           #pip install --upgrade pip
           #pip install -r ./requirements.txt
           #./test.sh
-          echo "running tests..."
+          echo "instaling python..."
 
   packageandpush:
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
         run: |
           #cd app/
           #docker image build -t dummy_api .
-          echo "packaging..."
+          echo "deploying image..."
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
         id: deploy
         shell: bash
         run: |
-          echo "Simulando deploy: helm upgrade --install dummy ./charts/basic-app -f ./vars.yaml --namespace dummy ..."
+          echo "SAMPLE..."
