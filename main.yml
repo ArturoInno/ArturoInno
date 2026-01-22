@@ -10,6 +10,9 @@ jobs:
     runs-on: [self-hosted]
     container:
       image: alpine:latest
+        credentials:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - run: echo "Building Python project 🔥"
@@ -19,6 +22,9 @@ jobs:
     needs: build
     container:
       image: python:3.12
+        credentials:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: test
@@ -36,6 +42,9 @@ jobs:
     needs: test
     container:
       image: sergiopr89/deployer:latest
+        credentials:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: package
@@ -51,6 +60,9 @@ jobs:
     needs: packageandpush
     container:
       image: sergiopr89/deployer:latest
+        credentials:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: deploy
