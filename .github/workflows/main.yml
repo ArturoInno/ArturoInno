@@ -40,9 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set IMAGE name (GHCR)
+      - name: Set IMAGE name (GHCR, lowercase)
         run: |
-          echo "IMAGE=ghcr.io/${{ github.repository }}:latest" >> $GITHUB_ENV
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}:latest"
+          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+
 
       - name: Create dummy Dockerfile
         run: |
