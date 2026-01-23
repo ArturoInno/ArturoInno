@@ -79,6 +79,6 @@ jobs:
             echo "helm upgrade --install dummy ./charts/basic-app -f ./vars.yaml --namespace dummy --create-namespace --atomic --timeout 300s"
             exit 0
           fi
-          mkdir -p $HOME/.kube
-          echo "$KUBECONFIG_CONTENT" > $HOME/.kube/config
+          mkdir -p "$HOME/.kube"
+          echo "$KUBECONFIG_CONTENT" > "$HOME/.kube/config"
           helm upgrade --install dummy ./charts/basic-app -f ./vars.yaml --namespace dummy --create-namespace --atomic --timeout 300s
