@@ -39,6 +39,14 @@ jobs:
       - name: Set IMAGE name
         run: echo "IMAGE=sergiopr89/dummy_api:latest" >> $GITHUB_ENV
 
+      - name: Create dummy Dockerfile
+        run: |
+          cat << 'EOF' > Dockerfile
+          FROM alpine:latest
+          RUN echo "Dummy image built by GitHub Actions"
+          CMD ["sh", "-c", "echo Container running"]
+          EOF
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
